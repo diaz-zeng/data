@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--指定驱动-->
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <!--连接URL-->
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@192.168.31.4:1521:XE</property>
+        <!--用户名-->
+        <property name="hibernate.connection.username">system</property>
+        <!--密码-->
+        <property name="hibernate.connection.password">0098</property>
+        <!--数据库方言-->
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+        <!--连接池提供商-->
+        <property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider
+        </property>
+        <!--输出SQL语句-->
+        <property name="show_sql">true</property>
+        <!--按格式化输出语句-->
+        <property name="format_sql">true</property>
+        <!--更新表结构的方式-->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!--绑定Session到线程，每个线程只能同时存在一个，无可有时自动创建，提交即关闭-->
+        <property name="hibernate.current_session_context_class">thread</property>
+        <!--实体类映射-->
+        <mapping class="com.test.entity.Admin"/>
+        <mapping class="com.test.entity.Good"/>
+        <mapping class="com.test.entity.Notice"/>
+    </session-factory>
+</hibernate-configuration>
